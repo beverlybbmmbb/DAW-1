@@ -1,0 +1,204 @@
+package app;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class main {
+	  public static void main(String[] args) {
+	        JFrame ventana = new JFrame("Calculadora Básica");
+	        ventana.setBounds(0, 0, 600, 500);
+	        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        ventana.setLayout(null);
+
+	   
+	        JLabel lblEjercicio1 = new JLabel("Calculadora Básica: Suma, Resta, Multiplicación y División");
+	        lblEjercicio1.setBounds(20, 20, 500, 30);
+	        ventana.add(lblEjercicio1);
+
+	      
+	        JLabel lblNumero1 = new JLabel("Número 1:");
+	        lblNumero1.setBounds(20, 60, 100, 30);
+	        ventana.add(lblNumero1);
+
+	        JTextField txtNumero1 = new JTextField();
+	        txtNumero1.setBounds(100, 60, 150, 30);
+	        ventana.add(txtNumero1);
+
+	      
+	        JLabel lblNumero2 = new JLabel("Número 2:");
+	        lblNumero2.setBounds(20, 100, 100, 30);
+	        ventana.add(lblNumero2);
+
+	        JTextField txtNumero2 = new JTextField();
+	        txtNumero2.setBounds(100, 100, 150, 30);
+	        ventana.add(txtNumero2);
+
+	      
+	        JButton btnSumar = new JButton("Sumar");
+	        btnSumar.setBounds(20, 140, 100, 30);
+	        ventana.add(btnSumar);
+
+	        JButton btnRestar = new JButton("Restar");
+	        btnRestar.setBounds(140, 140, 100, 30);
+	        ventana.add(btnRestar);
+
+	        JButton btnMultiplicar = new JButton("Multiplicar");
+	        btnMultiplicar.setBounds(260, 140, 120, 30);
+	        ventana.add(btnMultiplicar);
+
+	        JButton btnDividir = new JButton("Dividir");
+	        btnDividir.setBounds(400, 140, 100, 30);
+	        ventana.add(btnDividir);
+
+	     
+	        JLabel lblResultado = new JLabel("Resultado: ");
+	        lblResultado.setBounds(20, 180, 500, 30);
+	        ventana.add(lblResultado);
+
+	      
+	        btnSumar.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent evt) {
+	                try {
+	                    int num1 = Integer.parseInt(txtNumero1.getText());
+	                    int num2 = Integer.parseInt(txtNumero2.getText());
+	                    lblResultado.setText("Resultado: " + (num1 + num2));
+	                } catch (NumberFormatException e) {
+	                    lblResultado.setText("Introduce números válidos.");
+	                }
+	            }
+	        });
+
+	        // Restar
+	        btnRestar.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent evt) {
+	                try {
+	                    int num1 = Integer.parseInt(txtNumero1.getText());
+	                    int num2 = Integer.parseInt(txtNumero2.getText());
+	                    lblResultado.setText("Resultado: " + (num1 - num2));
+	                } catch (NumberFormatException e) {
+	                    lblResultado.setText("Introduce números válidos.");
+	                }
+	            }
+	        });
+
+	        //  Multiplicar
+	        btnMultiplicar.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent evt) {
+	                try {
+	                    int num1 = Integer.parseInt(txtNumero1.getText());
+	                    int num2 = Integer.parseInt(txtNumero2.getText());
+	                    lblResultado.setText("Resultado: " + (num1 * num2));
+	                } catch (NumberFormatException e) {
+	                    lblResultado.setText("Introduce números válidos.");
+	                }
+	            }
+	        });
+
+	        // Dividir
+	        btnDividir.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent evt) {
+	                try {
+	                    int num1 = Integer.parseInt(txtNumero1.getText());
+	                    int num2 = Integer.parseInt(txtNumero2.getText());
+	                    if (num2 == 0) {
+	                        lblResultado.setText("No se puede dividir entre 0.");
+	                    } else {
+	                        lblResultado.setText("Resultado: " + (num1 / (double) num2));
+	                    }
+	                } catch (NumberFormatException e) {
+	                    lblResultado.setText("Introduce números válidos.");
+	                }
+	            }
+	        });
+
+	  
+
+        //Color de fondo
+        JLabel lblEjercicio2 = new JLabel("Ejercicio 2: Cambiar color de fondo");
+        lblEjercicio2.setBounds(20, 220, 300, 30);
+        ventana.add(lblEjercicio2);
+
+        JButton btnRojo = new JButton("Rojo");
+        btnRojo.setBounds(20, 260, 100, 30);
+        ventana.add(btnRojo);
+
+        JButton btnVerde = new JButton("Verde");
+        btnVerde.setBounds(140, 260, 100, 30);
+        ventana.add(btnVerde);
+
+        JButton btnAzul = new JButton("Azul");
+        btnAzul.setBounds(260, 260, 100, 30);
+        ventana.add(btnAzul);
+
+        btnRojo.addActionListener(evt -> ventana.getContentPane().setBackground(Color.RED));
+        btnVerde.addActionListener(evt -> ventana.getContentPane().setBackground(Color.GREEN));
+        btnAzul.addActionListener(evt -> ventana.getContentPane().setBackground(Color.BLUE));
+	        
+	        /*JLabel lblEjercicio2 = new JLabel("Ejercicio 2: Cambiar color de fondo");
+	        lblEjercicio2.setBounds(20, 220, 300, 30);
+	        ventana.add(lblEjercicio2);
+
+	        JButton btnRosa = new JButton("Rosa");
+	        btnRosa.setBounds(20, 260, 100, 30);
+	        btnRosa.setBackground(new Color(255, 182, 193)); // Rosa pastel
+	        ventana.add(btnRosa);
+
+	        JButton btnAzul = new JButton("Azul");
+	        btnAzul.setBounds(140, 260, 100, 30);
+	        btnAzul.setBackground(new Color(173, 216, 230)); // Azul pastel
+	        ventana.add(btnAzul);
+
+	        JButton btnMorado = new JButton("Morado");
+	        btnMorado.setBounds(260, 260, 100, 30);
+	        btnMorado.setBackground(new Color(221, 160, 221)); // Morado pastel
+	        ventana.add(btnMorado);
+
+	        btnRosa.addActionListener(evt -> ventana.getContentPane().setBackground(new Color(255, 228, 225))); // Fondo rosa pastel
+	        btnAzul.addActionListener(evt -> ventana.getContentPane().setBackground(new Color(173, 216, 230))); // Fondo azul pastel
+	        btnMorado.addActionListener(evt -> ventana.getContentPane().setBackground(new Color(221, 160, 221))); // Fondo morado pastel*/
+        // Validar 
+        JLabel lblEjercicio3 = new JLabel("Ejercicio 3: Validar Número");
+        lblEjercicio3.setBounds(20, 300, 300, 30);
+        ventana.add(lblEjercicio3);
+
+        JLabel lblEscribirNumero = new JLabel("Escribe un número:");
+        lblEscribirNumero.setBounds(20, 340, 150, 30);
+        ventana.add(lblEscribirNumero);
+
+        JTextField txtValidar = new JTextField();
+        txtValidar.setBounds(150, 340, 150, 30);
+        ventana.add(txtValidar);
+
+        JButton btnValidar = new JButton("Validar");
+        btnValidar.setBounds(20, 380, 100, 30);
+        ventana.add(btnValidar);
+
+        JLabel lblValidacion = new JLabel("Resultado: ");
+        lblValidacion.setBounds(20, 420, 300, 30);
+        ventana.add(lblValidacion);
+
+        btnValidar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String texto = txtValidar.getText();
+                try {
+                    Integer.parseInt(texto);
+                    lblValidacion.setText("Resultado: Es un número.");
+                } catch (NumberFormatException e) {
+                    lblValidacion.setText("Resultado: No es un número.");
+                }
+            }
+        });
+
+        ventana.setVisible(true);
+    }
+}
